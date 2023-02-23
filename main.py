@@ -1,4 +1,5 @@
 def generate_matrix():
+    global one, two, chance
     user_inpt = input('Enter the size of the field. (example: 10x10):')
     user_inpt_2 = input('\nPlease define the probability of a mine. example: 0.1:\n')
     if 0 < float(user_inpt_2) <= 1:
@@ -47,7 +48,7 @@ def apply_mines(matrix, view_matrix, probability):
     return new_list, optical
 
 
-def find_exit(matrix, visual):  # sourcery skip: identity-comprehension
+def find_exit(matrix, visual):
 
     one_line = [item for sublist in matrix for item in sublist]
     short_result = any(one_line.count(i) == len(visual) for i in one_line)
@@ -80,7 +81,7 @@ def find_exit(matrix, visual):  # sourcery skip: identity-comprehension
             if char != 0 and char - 1 in next_lev and char - 1 in whole_matrix[level]:
                 return True
 
-        def check_life(slate, char):
+        def check_level(slate, char):
             passed = []
             for x in slate:
                 result = [True]
@@ -138,8 +139,8 @@ def find_exit(matrix, visual):  # sourcery skip: identity-comprehension
                     if check_left(whole_matrix[next_level], G) and G - 1 not in path:
                         path.append(G - 1)
                         history.append(G - 1)
-                    if check_life(current_slate, G):
-                        for x in check_life(current_slate, G):
+                    if check_level(current_slate, G):
+                        for x in check_level(current_slate, G):
                             if x not in path:
                                 path.append(x)
                                 history.append(x)
@@ -170,4 +171,5 @@ def main():
 if __name__ == '__main__':
     main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
