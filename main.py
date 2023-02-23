@@ -123,9 +123,9 @@ def find_exit(matrix, visual):  # sourcery skip: identity-comprehension
         def continuance():
             for G in whole_matrix[level]:
                 if G in path:
-                    print(f'Current level: {level} ====')
-                    print(f'Current path: {path}')
-                    print(f'Current value: {G}\n')
+                    # print(f'Current level: {level} ====')
+                    # print(f'Current path: {path}')
+                    # print(f'Current value: {G}\n')
                     current_slate = [x for x in whole_matrix[level] if check_down(whole_matrix[next_level], x)]
 
                     if check_down(whole_matrix[next_level], G) and G not in path:
@@ -143,7 +143,7 @@ def find_exit(matrix, visual):  # sourcery skip: identity-comprehension
                             if x not in path:
                                 path.append(x)
                                 history.append(x)
-                                print(f'Added {x} to path           +++++++++')
+                                # print(f'Added {x} to path           +++++++++')
                     if not check_down(whole_matrix[next_level], G):
                         path.remove(G)
             if next_level == len(whole_matrix) - 1 and path:
