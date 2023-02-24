@@ -1,6 +1,6 @@
 **Find Exit Matrix Generator**
 
-General info
+**General info**
 
 This program generates an n*m matrix with empty fields in each row based on the user's input of the dimensions and probability coefficient. Its primary objective is to determine whether there exists a path from the top layer to the bottom of the matrix.
 
